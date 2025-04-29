@@ -1,0 +1,148 @@
+/* Style for the search input field */
+h2{
+  color:aqua;
+}
+#myInput {
+
+    background-image: url('/css/searchicon.png'); /* Optional search icon */
+    background-position: 10px 12px; /* Icon position */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full width of input */
+    font-size: 18px; /* Font size */
+    padding: 12px 20px 12px 40px; /* Padding for input */
+    border: 10px solid #ddd; /* Grey border */
+    margin-bottom: 12px; /* Space below input */
+  }
+  
+  /* Style for the table */
+  #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full width of table */
+    border: 1px solid #ddd; /* Grey border */
+    font-size: 18px; /* Font size */
+  }
+  
+  /* Style for table header and cells */
+  #myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Padding for table cells */
+  }
+  
+  /* Style for each table row */
+  #myTable tr {
+    border-bottom: 1px solid #ddd; /* Bottom border for each row */
+  }
+  
+  /* Style for table header and row hover effect */
+  #myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1; /* Grey background on hover */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Search Input for Trash Type -->
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for trash type... (e.g., Paper, Plastic Cup A)">
+
+  <!-- Table of Waste and Locations -->
+  <table id="myTable">
+    <tr class="header">
+      <th style="width:60%;">Trash Type</th>
+      <th style="width:40%;">Location</th>
+    </tr>
+    <tr>
+      <td>Paper</td>
+      <td>Bin A</td>
+    </tr>
+    <tr>
+      <td>Plastic Cup A</td>
+      <td>Bin B</td>
+    </tr>
+    <tr>
+      <td>Plastic Cup B</td>
+      <td>Bin C</td>
+    </tr>
+    <tr>
+      <td>Electronics</td>
+      <td>Bin D</td>
+    </tr>
+    <tr>
+      <td>Clothing</td>
+      <td>Bin E</td>
+    </tr>
+    <tr>
+      <td>Food Waste</td>
+      <td>Bin F</td>
+    </tr>
+    <tr>
+      <td>Glass</td>
+      <td>Bin G</td>
+    </tr>
+    <tr>
+      <td>Metal</td>
+      <td>Bin H</td>
+    </tr>
+  </table>
+
+  <!-- JavaScript for Search Function -->
+  <script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+app
+
+
+function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+        }
+    }
+}
